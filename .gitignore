@@ -1,0 +1,11 @@
+*.pem
+*.ppk
+*.key
+.env
+.env.*
+.aws/
+.ssh/
+credentials
+*.tfstate
+*.tfstate.*
+*.rdp
