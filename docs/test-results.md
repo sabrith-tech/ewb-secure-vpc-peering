@@ -41,3 +41,14 @@ PING 10.10.2.10 (10.10.2.10) 56(84) bytes of data.
 4 packets transmitted, 4 received, 0% packet loss, time 3118ms
 rtt min/avg/max/mdev = 0.169/0.178/0.185/0.006 ms
 ```
+## Test 4: Controlled ICMP Failure Test (App-A to App-B)
+- **Status:** FAIL (Expected security group policy isolation)
+- **Command:** `ping -c 4 10.20.1.10`
+- **Output Observed:**
+```bash
+[ec2-user@ip-10-10-2-10 ~]$ ping -c 4 10.20.1.10
+PING 10.20.1.10 (10.20.1.10) 56(84) bytes of data.
+
+--- 10.20.1.10 ping statistics ---
+4 packets transmitted, 0 received, 100% packet loss, time 3085ms
+```
