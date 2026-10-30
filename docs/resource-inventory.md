@@ -32,6 +32,7 @@ This document records the baseline network configuration for the Mumbai (`ap-sou
 | ewb-bastion-sg | ewb-alpha-vpc | SSH (Port 22) from My IP (Redacted) | sg-020d4b8643dd52c3d |
 | ewb-app-a-sg | ewb-alpha-vpc | SSH (Port 22) from ewb-bastion-sg, Custom ICMP (Echo Request) from 10.20.1.10/32 | sg-0156b63e21efcef08 |
 | ewb-app-b-sg | ewb-beta-vpc | SSH (Port 22) from 10.10.1.10/32, Custom ICMP (Echo Request) from 10.10.2.10/32 | sg-05d3fbe5452d8878f |
+| ewb-app-b-sg | ewb-beta-vpc | SSH (Port 22) from ewb-bastion-sg (Cross-VPC), Custom ICMP (Echo Request) from 10.10.2.10/32 | sg-05d3fbe5452d8878f |
 
 ## 6. Compute Resources (EC2 Instances)
 | Instance Name | Subnet Location | Private IP | Public IP | Security Group | AWS Instance ID |
@@ -39,3 +40,5 @@ This document records the baseline network configuration for the Mumbai (`ap-sou
 | ewb-bastion | ewb-alpha-public-subnet-a | 10.10.1.10 | YOUR_BASTION_PUBLIC_IP (Redacted) | ewb-bastion-sg | i-0a22b995436eaf3bb |
 | ewb-app-a | ewb-alpha-private-subnet-a | 10.10.2.10 | None | ewb-app-a-sg | i-0ee22b91c3ffa46f4 |
 | ewb-app-b | ewb-beta-private-subnet-a | 10.20.1.10 | None | ewb-app-b-sg | i-072ef1619d9248358 |
+
+
