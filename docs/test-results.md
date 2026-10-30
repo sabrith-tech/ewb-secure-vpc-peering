@@ -68,3 +68,11 @@ PING 10.20.1.10 (10.20.1.10) 56(84) bytes of data.
 4 packets transmitted, 4 received, 0% packet loss, time 3147ms
 rtt min/avg/max/mdev = 0.166/0.183/0.219/0.020 ms
 ```
+## Test 6: Secret Mission - Cross-VPC Security Group Reference (App-B)
+- **Objective:** Prove that SSH access is successfully authorized by referencing the bastion's security group ID across the peering bridge rather than a static private IP.
+- **Status:** PASS
+- **Command Run:** `ssh ewb-app-b`
+- **Output Observed:** Successful ProxyJump connection resulting in an interactive shell:
+```bash
+[ec2-user@ip-10-20-1-10 ~]$
+```
