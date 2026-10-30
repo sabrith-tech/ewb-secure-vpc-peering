@@ -84,6 +84,9 @@ The detailed audit of all provisioned networking, security, and computing resour
 This lab uses a rigorous test-driven validation model to prove absolute security. Below is a summary of the test phases executed. The complete console commands, parameters, and live terminal outputs can be reviewed in:
 📂 **[docs/test-results.md](docs/test-results.md)**
 
+### 🚀 Secret Mission Completed!
+- **Cross-VPC Security Group Reference:** Hardened security by removing App-B's static IP-based SSH rule and replacing it with a peer security-group reference targeting `ewb-bastion-sg`. Retested and confirmed that SSH tunnels remain fully active and secured by group membership across VPC boundaries.
+
 ### Test Summary
 1. **Pre-Peering Baseline (App-A to App-B):** `FAIL` (Confirmed perfect isolation of 100% packet loss between separate VPCs before peering).
 2. **Forward Peering (App-A to App-B):** `PASS` (Confirmed successful private routing at 0% packet loss over the peering connection).
@@ -97,3 +100,4 @@ This lab uses a rigorous test-driven validation model to prove absolute security
 - **SSH ProxyJump & Key Hardening:** Gained deep experience with local OpenSSH configurations on Windows. Moved key files to `%USERPROFILE%\.ssh\config` and modified security permissions to satisfy single-owner standards (removing SYSTEM and Administrator inheritance) to establish multi-hop SSH jumps into hidden instances.
 - **Security-First Network Design:** Witnessed firsthand that VPC Peering acts solely as a physical bridge; security groups act as the ultimate logical barrier. This is critical for defending multi-tier enterprise systems.
 - **Automated Alerts & Cost Monitoring:** Handled AWS Billing consoles, successfully identifying cost anomaly alerts caused by sudden baseline deviation and tracking public IPv4 charges.
+  
