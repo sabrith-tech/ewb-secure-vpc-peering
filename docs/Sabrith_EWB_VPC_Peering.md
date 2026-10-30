@@ -35,7 +35,7 @@ To bridge these environments securely, VPC Peering was implemented alongside cus
 
 ## 3. Architecture Validation Matrix
 
-The network’s security boundaries were validated using five explicit test phases:
+The network’s security boundaries were validated using six explicit test phases:
 
 | Test Phase | Source Node | Destination Node | Port / Protocol | Expected State | Observed State | Status |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -44,8 +44,7 @@ The network’s security boundaries were validated using five explicit test phas
 | 3. Reverse Peering | App-B (`10.20.1.10`) | App-A (`10.10.2.10`) | ICMP (Ping) | 0% Packet Loss | 0% Packet Loss (Replies Active) | PASS |
 | 4. Security Block | App-A (`10.10.2.10`) | App-B (`10.20.1.10`) | ICMP (Rule Deleted) | 100% Packet Loss | 100% Packet Loss (Silence) | PASS |
 | 5. Path Recovery | App-A (`10.10.2.10`) | App-B (`10.20.1.10`) | ICMP (Rule Restored) | 0% Packet Loss | 0% Packet Loss (Replies Restored) | PASS |
-
----
+| 6. Secret Mission | Bastion (`10.10.1.10`) | App-B (`10.20.1.10`) | SSH (Cross-VPC SG Ref) | Active Shell Connection | Active Shell Connection (ProxyJump verified) | PASS |
 
 ## 4. Key Engineering Takeaways
 
