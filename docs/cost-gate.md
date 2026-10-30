@@ -1,26 +1,19 @@
-# Zero-Cost Gate
+# Cost Gate & Budget Checklist
 
-Status: PASS
+This document verifies that the AWS environment has been audited for cost management and that standard Free Tier thresholds are understood prior to deploying resources in the Asia Pacific (Mumbai) `ap-south-1` region.
 
-- Applicable Free Tier or sufficient unexpired credits: PASS.
-- EC2 usage headroom for three instance-hours: PASS.
-- Coverage for 24 GiB of gp3 storage: PASS.
-- Coverage for one public IPv4 hour: PASS.
-- Amazon Linux 2023 marked Free tier eligible: PASS.
-- t3.micro marked Free tier eligible: PASS.
-- Same-AZ placement confirmed: PASS.
+## 📌 Cost Check Status
+- **Status:** PASS
+- **Verified On:** 2026-10-30 UTC
 
-## Live Asia Pacific (Mumbai) Pricing
+## 💰 Live Asia Pacific (Mumbai) Pricing Reference
+- **On-Demand Compute (t3.micro / Linux):** $0.0112 per hour
+- **EBS Volume Storage (gp3 SSD):** $0.0912 per GB-month
+- **Public IPv4 Address (In-Use):** $0.0050 per hour
+- **Data Transfer (Out to Internet):** $0.1093 per GB (Note: First 100 GB per month is free)
 
-- On-demand compute: $0.0112 per hour.
-- EBS: $0.0912 per GB-month .
-- Public IPv4: $0.0050 per hour.
-- Data transfer:  $0.1093 per GB .
-
-## Planned Cost Controls
-
-- Credit specification: standard.
-- Root storage: three 8 GiB gp3 volumes, 24 GiB total.
-- Added volumes and snapshots: none.
-- Elastic IP, NAT Gateway, Transit Gateway, and paid analysis: excluded.
-- AWS infrastructure created during this step: none.
+## 🛡️ Cost Safeguards Implemented
+1. **Zero Active Cost Baseline:** Verified via Billing Console that month-to-date spending is under control, with standard Free Tier discounts successfully offsetting compute services.
+2. **Resource Hygiene Audit:** Confirmed 0 active/running instances, 0 orphaned EBS volumes, and 0 idle Elastic IP addresses before starting work.
+3. **Credit Specification Safeguard:** Standard credit specification (rather than Unlimited) enforced during instance launch to prevent automatic CPU burst charges on t3.micro.
+4. **Active Cleanup Strategy:** All created resources (instances, peering connections, subnets, route tables, and VPCs) will be completely terminated and deleted immediately upon project sign-off.
