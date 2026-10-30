@@ -1,4 +1,4 @@
-# ewb-secure-vpc-peering
+
 # Build Secure AWS VPC Peering
 
 This project demonstrates the design, deployment, and validation of a secure, multi-VPC cloud network in Amazon Web Services (AWS) using the Asia Pacific (Mumbai) region. This infrastructure features a public-facing bastion host acting as a secure gateway, providing controlled SSH access to private application instances in isolated VPCs. 
