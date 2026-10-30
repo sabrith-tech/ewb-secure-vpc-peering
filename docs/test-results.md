@@ -25,3 +25,19 @@ PING 10.20.1.10 (10.20.1.10) 56(84) bytes of data.
 4 packets transmitted, 4 received, 0% packet loss, time 3124ms
 rtt min/avg/max/mdev = 0.169/0.256/0.439/0.107 ms
 ```
+## Test 3: Reverse Peering Test (App-B to App-A)
+- **Status:** Pass
+- **Command:** `ping -c 4 10.10.2.10`
+- **Output Observed:**
+```bash
+[ec2-user@ip-10-20-1-10 ~]$ ping -c 4 10.10.2.10
+PING 10.10.2.10 (10.10.2.10) 56(84) bytes of data.
+64 bytes from 10.10.2.10: icmp_seq=1 ttl=127 time=0.169 ms
+64 bytes from 10.10.2.10: icmp_seq=2 ttl=127 time=0.185 ms
+64 bytes from 10.10.2.10: icmp_seq=3 ttl=127 time=0.185 ms
+64 bytes from 10.10.2.10: icmp_seq=4 ttl=127 time=0.176 ms
+
+--- 10.10.2.10 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3118ms
+rtt min/avg/max/mdev = 0.169/0.178/0.185/0.006 ms
+```
