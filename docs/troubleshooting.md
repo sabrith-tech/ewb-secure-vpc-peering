@@ -35,3 +35,8 @@ When diagnosing a connectivity failure between instances in a peered VPC network
 - **Symptom:** After established connection, pinging from App-A to App-B suddenly timed out, but the independent SSH administrative channel (ProxyJump) remained fully functional.
 - **Root Cause:** Deleted the Custom ICMP IPv4 (Echo Request) inbound rule from App-B's security group (`ewb-app-b-sg`). Because security groups are stateful and operate at the instance level, they evaluated and silently dropped the ICMP ping packets before they could touch the server interface, while allowing SSH traffic over Port 22.
 - **Resolution:** Re-added the inbound ICMP rule on App-B permitting Echo Requests from App-A's exact private IP address (`10.10.2.10/32`).
+
+### Case 4: The Stale Peer Security-Group Reference
+- **Symptom:** SSH or ICMP packets suddenly time out after deleting and rebuilding a network, even if security groups look identical.
+- **Root Cause:** Deleting a VPC Peering connection immediately invalidates and "freezes" any cross-VPC security-group references. The rule on the security group will show up as stale or disabled because the logical bridge authorizing that membership lookup is gone.
+- **Resolution:** Re-establish the active peering connection, delete the stale rule, and recreate it referencing the newly generated peer security-group ID.
