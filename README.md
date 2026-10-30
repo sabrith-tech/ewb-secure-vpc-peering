@@ -93,8 +93,7 @@ This lab uses a rigorous test-driven validation model to prove absolute security
 3. **Reverse Peering (App-B to App-A):** `PASS` (Confirmed bidirectional pathing at 0% packet loss).
 4. **Controlled ICMP Security Failure:** `FAIL` (Proved that removing explicit ICMP security group rules blocks traffic even with active peering).
 5. **ICMP Recovery Test:** `PASS` (Proved immediate, secure path restoration upon restoring the security group rule).
-
----
+6. **Secret Mission (Cross-VPC Security Group Reference):** `PASS` (Proved that SSH access is successfully authorized by referencing the bastion's security group ID across the peering bridge rather than a static private IP).
 
 ## 💻 Key Takeaways
 - **SSH ProxyJump & Key Hardening:** Gained deep experience with local OpenSSH configurations on Windows. Moved key files to `%USERPROFILE%\.ssh\config` and modified security permissions to satisfy single-owner standards (removing SYSTEM and Administrator inheritance) to establish multi-hop SSH jumps into hidden instances.
